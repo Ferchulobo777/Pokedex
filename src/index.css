@@ -358,6 +358,22 @@
     font-size: 15px;
   }
 }
+@media only screen and (min-width: 388px) {
+  .ball {
+    left: 262px;
+    top: 38px;
+    width: 80px;
+    height: 80px;
+}
+}
+@media only screen and (min-width: 389px) {
+  .ball {
+    left: 264px;
+    top: 38px;
+    width: 80px;
+    height: 80px;
+}
+}
 @media only screen and (min-width: 390px) {
   .ball {
     left: 264px;
