@@ -374,6 +374,36 @@
 
   }
 }
+@media only screen and (min-width: 410px) {
+  .ball {
+    left: 284px;
+    top: 38px;
+    width: 80px;
+    height: 80px;
+}
+.input::placeholder{
+  font-size: 15px;
+}
+.select{
+  font-size: 15px;
+
+}
+}
+@media only screen and (min-width: 415px) {
+  .ball {
+    left: 288px;
+    top: 38px;
+    width: 80px;
+    height: 80px;
+}
+.input::placeholder{
+  font-size: 15px;
+}
+.select{
+  font-size: 15px;
+
+}
+}
 @media only screen and (min-width: 420px) {
   .ball {
     left: 294px;
