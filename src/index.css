@@ -382,6 +382,22 @@
     height: 80px;
 }
 }
+@media only screen and (min-width: 396px) {
+  .ball {
+    left: 272px;
+    top: 38px;
+    width: 80px;
+    height: 80px;
+}
+}
+@media only screen and (min-width: 398px) {
+  .ball {
+    left: 272px;
+    top: 38px;
+    width: 80px;
+    height: 80px;
+}
+}
 @media only screen and (min-width: 400px) {
     .ball {
       left: 275px;
