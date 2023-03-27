@@ -492,6 +492,50 @@
   margin-bottom: 20px;
 }
 }
+@media only screen and (min-width: 460px) {
+  .ball {
+    left: 334px;
+    top: 38px;
+    width: 80px;
+    height: 80px;
+}
+.input::placeholder{
+  font-size: 15px;
+}
+.select{
+  font-size: 15px;
+}
+.light{
+  margin-left: 4px;
+  margin-right: 4px;
+  font-size: 32px;
+  -webkit-text-stroke: blue;
+  -webkit-text-stroke-width: .8px;
+  margin-bottom: 20px;
+}
+}
+@media only screen and (min-width: 470px) {
+  .ball {
+    left: 344px;
+    top: 38px;
+    width: 80px;
+    height: 80px;
+}
+.input::placeholder{
+  font-size: 15px;
+}
+.select{
+  font-size: 15px;
+}
+.light{
+  margin-left: 4px;
+  margin-right: 4px;
+  font-size: 32px;
+  -webkit-text-stroke: blue;
+  -webkit-text-stroke-width: .8px;
+  margin-bottom: 20px;
+}
+}
 @media only screen and (min-width: 546px) {
   .ball {
     left: 420px;
