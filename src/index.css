@@ -358,7 +358,14 @@
     font-size: 15px;
   }
 }
-
+@media only screen and (min-width: 390px) {
+  .ball {
+    left: 264px;
+    top: 38px;
+    width: 80px;
+    height: 80px;
+}
+}
 @media only screen and (min-width: 400px) {
     .ball {
       left: 275px;
@@ -534,6 +541,14 @@
   -webkit-text-stroke: blue;
   -webkit-text-stroke-width: .8px;
   margin-bottom: 20px;
+}
+}
+@media only screen and (min-width: 470px) {
+  .ball {
+    left: 354px;
+    top: 38px;
+    width: 80px;
+    height: 80px;
 }
 }
 @media only screen and (min-width: 546px) {
