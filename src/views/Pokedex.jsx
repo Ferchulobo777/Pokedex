@@ -30,9 +30,9 @@ const Pokedex = () => {
   const [pokemons, setPokemons] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const pokemonsPagination = usePagination(
-    pokemons.filter((pokemon) => {
+    pokemons.length > 0 ? pokemons.filter((pokemon) => {
       return pokemon.name.includes(searchTerm.toLowerCase());
-    }),
+    }) : [],
     50,
   );
   const loadAllPokemons = async () => {

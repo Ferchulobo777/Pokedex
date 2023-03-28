@@ -1,28 +1,31 @@
 import React, { useState } from 'react';
+import { usePagination } from '../hooks/usePagination';
+import PokemonCard from './PokemonCard';
 
 const ByType = ({ getByType }) => {
-  const [type, setType] = useState('');
+  const [selectedType, setSelectedType] = useState('');
+  const [filteredPokemons, setFilteredPokemons] = useState([]);
+  const pokemonsPerPage = 12;
 
-  const handleTypeChange = (e) => {
-    setType(e.target.value);
+  const handleFilterByType = async (event) => {
+    const type = event.target.value;
+    setSelectedType(type);
+    const pokemons = await getByType(type);
+    setFilteredPokemons(pokemons);
   };
 
-  const handleFilterByType = async () => {
-    const pokemonsByType = await getByType(type);
-
-    console.log(pokemonsByType); // Aquí puedes hacer lo que quieras con los pokemons filtrados por tipo
-  };
+  const filteredPagination = usePagination(filteredPokemons, pokemonsPerPage);
 
   return (
-    <div className="mt-6 flex flex-row items-center justify-center gap-4 mx-6">
-      <span className="text-xl font-bold">Buscar por tipo:</span>
+    <div className="flex flex-col justify-center items-center mt-8 w-full">
+      <p className="text-2xl font-bold mb-2 text-center">Buscar por tipo:</p>
       <select
-        className="rounded-lg w-40 h-10 text-sm text-center border-2 border-black text-gray-900 font-black select"
-        value={type}
-        onChange={handleTypeChange}
+        value={selectedType}
+        onChange={handleFilterByType}
+        className="w-1/2 text-xl font-bold rounded-lg shadow-md cursor-pointer text-center border-2 border-black text-zinc-800 input"
       >
         <option value="" className="font-black text-center">
-          Seleccione un tipo
+          --Seleccione un tipo--
         </option>
         <option value="normal" className="font-black text-rose-300">
           Normal
@@ -79,12 +82,29 @@ const ByType = ({ getByType }) => {
           Hada
         </option>
       </select>
-      <button
-        className="bg-green-500 text-white rounded-lg px-4 py-2 text-xl font-bold hover:saturate-200 hover:transform hover:scale-110 hover:shadow hover:shadow-white"
-        onClick={handleFilterByType}
-      >
-        Buscar
-      </button>
+      {filteredPokemons.length > 0 && (
+        <div className="flex flex-wrap flex-row gap-6 mt-20 mb-20 mx-6 justify-evenly">
+        <div className="flex flex-wrap flex-row gap-4 mt-20 justify-center w-3/4 text-xl font-bold hover:shadow-md hover:shadow-red-500 rounded-lg cursor-pointer">
+            {filteredPagination.pages.map((page) => (
+              <button
+                key={page}
+                onClick={() => filteredPagination.changePageTo(page)}
+                className={
+                  filteredPagination.currentPage === page
+                    ? 'text-red-500 font-black text-3xl hover:shadow-md hover:shadow-red-500 rounded-lg'
+                    : 'hover:shadow-md hover:shadow-red-500 rounded-lg'
+                }
+              >
+                {page}
+              </button>
+            ))}
+          </div>
+          {filteredPagination.listSlice.map((pokemon) => (
+            <PokemonCard key={pokemon.url} pokemonData={pokemon} />
+          ))}
+          
+        </div>
+      )}
     </div>
   );
 };
