@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { FaChevronLeft } from 'react-icons/fa';
 
 const getPokemonById = async (id) => {
   try {
@@ -78,6 +80,9 @@ const PokemonDetail = () => {
 
   return (
     <section className="flex justify-center w-full">
+      <Link to="/pokedex" className="absolute left-6 top-36 p-4">
+        <FaChevronLeft size={40} />
+      </Link>
       <header
         className={`bg bg${pokemon?.types[0].type.name} flex flex-col justify center border-2 card rounded-xl mt-48 mb-20 w-5/6 h-full`}
       >
@@ -109,7 +114,19 @@ const PokemonDetail = () => {
             />
           )}
         </motion.div>
-        <hr className="w-3/4 bg-black flex justify-center items-center mx-auto mt-6" />
+        <div className="flex flex-row flex-wrap gap-20 justify-center mt-12">
+          <div className="flex flex-col">
+            <p className="text-center mt-4 mb-4 font-bold text-2xl">Peso</p>
+            <p className="text-center text-lg font-semibold">{pokemon?.weight} kg</p>
+          </div>
+          <div className="flex flex-col">
+            <p className="text-center mt-4 mb-4 font-bold text-2xl">Altura</p>
+            <p className="text-center text-lg font-semibold">{pokemon?.height / 10} m</p>
+          </div>
+        </div>
+        <hr
+          className={`bg bg${pokemon?.types[0].type.name} card w-3/4 flex hover:saturate-200 justify-center items-center mx-auto mt-6 mb-4`}
+        />
         <p className="text-center mt-4 mb-4 font-bold text-2xl">Tipo</p>
         <div className="flex justify-center text-xl font-bold mb-8 mt-2">
           {pokemon?.types.map((type) => (
@@ -121,14 +138,16 @@ const PokemonDetail = () => {
             </div>
           ))}
         </div>
-        <hr className="w-3/4 bg-black flex justify-center items-center mx-auto" />
+        <hr
+          className={`bg bg${pokemon?.types[0].type.name} card w-3/4 flex hover:saturate-200 justify-center items-center mx-auto mt-10 mb-4`}
+        />
         <div>
           <h2 className="text-center mt-4 font-bold text-2xl mb-4">Habilidades</h2>
           <div className="flex flex-wrap justify-center">
             {pokemon?.abilities.map((ability) => (
               <p
                 key={ability.ability.name}
-                className="bg-gray-200 px-3 py-1 m-1 rounded-full font-bold"
+                className={`bg bg${pokemon?.types[0].type.name} card w-40 h-16 flex hover:saturate-200 justify-center items-center mx-8 mt-4 mb-4`}
               >
                 {ability.ability.name}
               </p>
@@ -136,7 +155,9 @@ const PokemonDetail = () => {
           </div>
         </div>
         <div className="flex flex-col">
-          <hr className="w-3/4 bg-black flex justify-center items-center mx-auto mt-10" />
+          <hr
+            className={`bg bg${pokemon?.types[0].type.name} card w-3/4 flex hover:saturate-200 justify-center items-center mx-auto mt-16 mb-4`}
+          />
           <h2 className="text-center mt-4 mb-4 font-bold text-2xl">Estadisticas</h2>
 
           <ul className="text-center font-bold text-xl mb-2 flex justify-center flex-col capitalize">
