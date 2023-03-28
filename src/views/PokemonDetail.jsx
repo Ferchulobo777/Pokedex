@@ -147,7 +147,7 @@ const PokemonDetail = () => {
             {pokemon?.abilities.map((ability) => (
               <p
                 key={ability.ability.name}
-                className={`bg bg${pokemon?.types[0].type.name} card w-40 h-16 flex hover:saturate-200 justify-center items-center mx-8 mt-4 mb-4`}
+                className={`bg bg${pokemon?.types[0].type.name} card w-40 h-16 flex hover:saturate-200 justify-center items-center mx-8 mt-4 mb-4 font-bold`}
               >
                 {ability.ability.name}
               </p>
