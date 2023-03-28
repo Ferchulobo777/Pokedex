@@ -80,7 +80,7 @@ const PokemonDetail = () => {
 
   return (
     <section className="flex justify-center w-full">
-      <Link to="/pokedex" className="absolute left-6 top-36 p-4">
+      <Link to="/pokedex" className="absolute left-0 top-32 p-4">
         <FaChevronLeft size={40} />
       </Link>
       <header
@@ -96,7 +96,7 @@ const PokemonDetail = () => {
           N° {id}{' '}
         </p>
         <motion.div
-          className={`bg bg${pokemon?.types[0].type.name} card w-96 h-96 flex hover:saturate-200 hover:rounded-full hover:transform hover:scale-125 mt-32 justify-center items-center`}
+          className={`bg bg${pokemon?.types[0].type.name} card w-2/5 h-2/5 flex hover:saturate-200 hover:rounded-full hover:transform hover:scale-125 mt-32 justify-center items-center mx-auto`}
           style={{ margin: 'auto' }}
         >
           {loading ? (
@@ -147,7 +147,7 @@ const PokemonDetail = () => {
             {pokemon?.abilities.map((ability) => (
               <p
                 key={ability.ability.name}
-                className={`bg bg${pokemon?.types[0].type.name} card w-40 h-16 flex hover:saturate-200 justify-center items-center mx-8 mt-4 mb-4 font-bold`}
+                className={`bg bg${pokemon?.types[0].type.name} card w-40 h-16 flex hover:saturate-200 justify-center items-center mx-6 mt-4 mb-4 font-bold`}
               >
                 {ability.ability.name}
               </p>
