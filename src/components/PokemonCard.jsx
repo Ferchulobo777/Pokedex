@@ -65,10 +65,11 @@ const PokemonCard = ({ pokemonData }) => {
           onClick={handleClickNavigate}
           className={`w-80 p-4 card cursor-pointer bg bg${pokemon?.types[0].type.name}`}
         >
-          <header
-            className={`bg bg${pokemon?.types[0].type.name} border-2 card rounded-xl`}
-          >
-            <motion.div className="w-40 h-40 flex hover:saturate-200 items-center justify-center mx-14 hover:rounded-full hover:transform hover:scale-125 mt-2">
+          <header className={`bg bg${pokemon?.types[0].type.name} rounded-xl`}>
+            <motion.div
+              className={`bg bg${pokemon?.types[0].type.name} card w-60 h-60 flex hover:saturate-200 hover:rounded-full hover:transform hover:scale-125 justify-center items-center mt-2`}
+              style={{ margin: 'auto' }}
+            >
               {loading ? (
                 <img src={`../assets/img/pokeball.png`} className="loader" alt="loader" />
               ) : (

@@ -33,7 +33,7 @@ const Pokedex = () => {
     pokemons.length > 0 ? pokemons.filter((pokemon) => {
       return pokemon.name.includes(searchTerm.toLowerCase());
     }) : [],
-    50,
+    21,
   );
   const loadAllPokemons = async () => {
     const allPokemons = await getAllPokemons();
