@@ -225,7 +225,7 @@
     border: solid 8px #72391E;
     }
 
-    .footer{
+.footer{
       background: #200122;
       background: -webkit-linear-gradient(to right, #200122, #6f0000); 
       background: linear-gradient(to right, #200122, #6f0000);
@@ -233,15 +233,7 @@
       height: 30rem;
       overflow: hidden;
   }
-  @keyframes marquee {
-      0% {
-        transform: translateX(0%);
-      }
-      100% {
-        transform: translateX(100%);
-      }
-    }
-    @keyframes latent {
+@keyframes latent {
       0%{
           
       };
