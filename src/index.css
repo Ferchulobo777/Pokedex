@@ -140,88 +140,109 @@
 .card.bggrass {
     background: linear-gradient(178.92deg, rgba(126, 198, 197, 0.3) 0.92%, rgba(171, 218, 198, 0.3) 47.96%, rgba(202, 224, 153, 0.3) 99.08%);
     border: solid 10px #7EC6C5;
+    color: #7EC6C5;
 }
 
 .card.bgbug {
     background: linear-gradient(177.56deg, rgba(98, 219, 96, 0.3) -58.92%, rgba(59, 176, 57, 0.3) 16.57%, rgba(170, 255, 168, 0.3) 209.53%);
     border: solid 8px #62DB60;
+    color: #62DB60;
 }
 
 .card.bgfire {
     background: linear-gradient(176.37deg, rgba(249, 109, 111, 0.3) -32.26%, rgba(227, 88, 37, 0.3) 22.55%, rgba(232, 174, 27, 0.3) 125.72%);
     border: solid 8px #F96D6F;
+    color: #F96D6F;
 }
 
 .card.bgwater {
     background: linear-gradient(179.57deg, rgba(19, 50, 88, 0.3) -70.14%, rgba(20, 121, 251, 0.3) 56.16%, rgba(130, 178, 241, 0.3) 214.85%);
     border: solid 8px #133258;
+    color: #133258;
 }
 
 .card.bgflying {
     background: rgba(161, 187, 236, 0.3);
     background: linear-gradient(-45deg, rgba(203, 228, 243, 0.3) 50%, rgba(157, 194, 236, 0.3) 50%);
     border: solid 8px #cbe4f3;
+    color: #cbe4f3;
 }
 
 .card.bgnormal {
     background: linear-gradient(181.51deg, rgba(115, 82, 89, 0.3) -6.44%, rgba(188, 107, 124, 0.3) 121.95%, rgba(124, 63, 76, 0.3) 186.11%);
     border: solid 8px #735259;
+    color: #735259;
 }
 
 .card.bgelectric {
     background: linear-gradient(179.75deg, rgba(252, 209, 0, 0.3) -19.96%, rgba(255, 219, 16, 0.3) 43.67%, rgba(252, 210, 0, 0.3) 138.4%);
     border: solid 8px #FCDD99;
+    color: #FCDD99;
 }
 
 .card.bgground {
     background: linear-gradient(179.75deg, rgba(101, 84, 59, 0.3) -21.91%, rgba(152, 123, 91, 0.3) 38.85%, rgba(204, 170, 105, 0.3) 87.32%);
     border: solid 8px #654008;
+    color: #654008;
 }
 .card.bgfairy {
     background: linear-gradient(180deg, rgba(232, 157, 233, 0.3) -15.67%, rgba(217, 103, 165, 0.3) 49.54%, rgba(229, 173, 210, 0.3) 105.46%);
     border: solid 8px #EAADCD;
+    color: #EAADCD;
     }
     
     .card.bgrock {
     background: linear-gradient(177.07deg, rgba(140, 117, 83, 0.3) -18.94%, rgba(189, 166, 108, 0.3) 44.8%, rgba(219, 204, 156, 0.3) 109.64%);
     border: solid 8px #785A3C;
+    color: #785A3C;
     }
     
     .card.bgsteel {
     background: linear-gradient(179.84deg, rgba(104, 120, 130, 0.3) -10.58%, rgba(154, 171, 178, 0.3) 50.81%, rgba(188, 202, 206, 0.3) 111.46%);
     border: solid 8px #4C4C4C;
+    color: #4C4C4C;
+
     }
     
     .card.bgghost {
         background: linear-gradient(180deg, rgba(251, 109, 232, 0.3) -33.53%, rgba(224, 130, 255, 0.3) 50.67%, rgba(187, 184, 228, 0.3) 146.28%);
         border: solid 8px #ff00ff;
+        color: #ff00ff;
     }
     
     .card.bgdark {
         background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) -8.11%, rgba(68, 68, 68, 0.3) 50.79%, rgba(116, 116, 116, 0.3) 105.71%);
         border: solid 8px #363636;
+        color: #363636;
     }
     
     .card.bgpsychic {
         background: linear-gradient(179.75deg, rgba(194, 97, 158, 0.3) -19.96%, rgba(213, 165, 196, 0.3) 43.67%, rgba(240, 224, 245, 0.3) 138.4%);
         border: solid 8px #C2619E;
+        color: #C2619E;
     }
     
     .card.bgdragon {
     background: linear-gradient(180deg, rgba(86, 110, 208, 0.3) -14.04%, rgba(133, 131, 198, 0.3) 50.79%, rgba(182, 178, 225, 0.3) 103.83%);
-    border: solid 8px rgba(86, 110, 208, 0.3);
+    border: solid 8px #566ed04d;
+    color: #566ed04d;
     }
     
     .card.bgice {
     background: linear-gradient(179.75deg, rgba(127, 187, 204, 0.3) -19.96%, rgba(179, 216, 227, 0.3) 43.67%, rgba(224, 245, 252, 0.3) 138.4%);
     border: solid 8px #7FBBCC;
+    color: #7FBBCC;
     }
     
     .card.bgfighting {
     background: linear-gradient(179.75deg, rgba(114, 57, 30, 0.3) -19.96%, rgba(163, 95, 58, 0.3) 43.67%, rgba(217, 152, 103, 0.3) 138.4%);
     border: solid 8px #72391E;
+    color: #72391E;
     }
 
+.name {
+  color: black;
+}
 .footer{
       background: #200122;
       background: -webkit-linear-gradient(to right, #200122, #6f0000); 

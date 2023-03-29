@@ -89,20 +89,20 @@ const PokemonCard = ({ pokemonData }) => {
 
           <section>
             <section>
-              <h2 className="text-2xl capitalize font-semibold text-center mt-6">
+              <h2 className="text-2xl capitalize font-bold text-center mt-6 text-slate-900">
                 {pokemon?.name}
               </h2>
-              <p className="text-center font-semibold mt-2 text-lg">{tipoPokemon}</p>
-              <p className="text-center font-bold mt-2">Tipo</p>
+              <p className="text-center font-semibold mt-2 text-lg mt-4">{tipoPokemon}</p>
+              <p className="text-xl capitalize font-bold text-center mt-0 text-slate-900">Tipo</p>
             </section>
 
             <section className="flex flex-wrap flex-row gap-8 mt-4 justify-between">
               {pokemon.stats.map((stat) => (
                 <section key={stat.stat.name}>
-                  <h3 className="underline underline-offset-2 font-bold">
+                  <h3 className="text-xl font-bold">
                     {stat.stat.name.toUpperCase()}
                   </h3>
-                  <p className="text-center">{stat.base_stat}</p>
+                  <p className="text-center font-bold text-lg">{stat.base_stat}</p>
                 </section>
               ))}
             </section>
