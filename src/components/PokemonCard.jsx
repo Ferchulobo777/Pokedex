@@ -5,21 +5,22 @@ import { useNavigate } from 'react-router-dom';
 import loader from '../assets/img/pokeball.png';
 import image from '../assets/img/imageNotFound.png';
 
-const PokemonCard = ({ pokemonData, loading, setLoading }) => {
+const PokemonCard = ({ pokemonData }) => {
   const [pokemon, setPokemon] = useState(null);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [loaded, setLoaded] = useState(false); // Nueva variable de estado
 
   const getPokemonById = async (url) => {
     try {
       const res = await axios.get(url);
-
       return res.data;
     } catch (error) {
       console.error(error);
+      setTimeout(() => {
+        setLoading(true);
+      }, 1700);
     }
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
   };
 
   const loadPokemon = async () => {
@@ -61,6 +62,16 @@ const PokemonCard = ({ pokemonData, loading, setLoading }) => {
   const handleClickNavigate = () => {
     navigate(`/pokedex/${pokemon.id}`);
   };
+  useEffect(() => {
+    const loadPokemon = async () => {
+      const pokemonInfo = await getPokemonById(pokemonData.url);
+      setPokemon(pokemonInfo);
+      setLoading(false);
+      setLoaded(true);
+       // establecer loaded en true después de cargar los datos
+    };
+    loadPokemon();
+  }, []);
 
   return (
     <>
@@ -74,7 +85,7 @@ const PokemonCard = ({ pokemonData, loading, setLoading }) => {
               className={`bg bg${pokemon?.types[0].type.name} card w-60 h-60 flex hover:saturate-200 hover:rounded-full hover:transform hover:scale-125 justify-center items-center mt-2`}
               style={{ margin: 'auto' }}
             >
-              {loading ? (
+              {loading || !loaded ? (
                 <img src={loader} className="loader" alt="loader" />
               ) : (
                 <motion.img

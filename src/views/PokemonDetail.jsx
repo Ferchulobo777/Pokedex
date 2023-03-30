@@ -23,7 +23,7 @@ const PokemonDetail = () => {
     }
     setTimeout(() => {
       setLoading(false);
-    }, 1500);
+    }, 15000);
   };
 
   const getPokemonNameById = async (id) => {
@@ -35,7 +35,7 @@ const PokemonDetail = () => {
     }
     setTimeout(() => {
       setLoading(false);
-    }, 1500);
+    }, 15000);
   };
 
   const getPokemonStatsById = async (id) => {
@@ -47,7 +47,7 @@ const PokemonDetail = () => {
     }
     setTimeout(() => {
       setLoading(false);
-    }, 1500);
+    }, 15000);
   };
 
   useEffect(() => {

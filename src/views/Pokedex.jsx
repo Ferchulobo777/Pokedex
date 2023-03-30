@@ -9,7 +9,7 @@ const Pokedex = () => {
   const { user } = useContext(UserContext);
   const [pokemons, setPokemons] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true); // set to true by default
   const pokemonsPagination = usePagination(
     pokemons.length > 0
       ? pokemons.filter((pokemon) => {
@@ -19,35 +19,33 @@ const Pokedex = () => {
     21,
   );
   const getAllPokemons = async () => {
+    setLoading(true); // set to true before making the API request
     try {
       const res = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=1300');
+      const allPokemons = res.data.results;
 
-      return res.data.results;
+      setPokemons(allPokemons);
     } catch (error) {
       console.error(error);
-      setTimeout(() => {
-        setLoading(false);
-      }, 1000);
     }
+    setLoading(false); // set to false after the API request is complete
   };
 
   const getByType = async (type) => {
+    setLoading(true); // set to true before making the API request
     try {
       const res = await axios.get(`https://pokeapi.co/api/v2/type/${type}`);
+      const pokemonsOfType = res.data.pokemon.map((p) => p.pokemon);
 
-      return res.data.pokemon.map((p) => p.pokemon);
+      setPokemons(pokemonsOfType);
     } catch (error) {
       console.error(error);
-      setTimeout(() => {
-        setLoading(false);
-      }, 1000);
     }
+    setLoading(false); // set to false after the API request is complete
   };
 
   const loadAllPokemons = async () => {
-    const allPokemons = await getAllPokemons();
-
-    setPokemons(allPokemons);
+    await getAllPokemons();
   };
 
   useEffect(() => {
@@ -61,6 +59,7 @@ const Pokedex = () => {
   const handleResetSearch = () => {
     setSearchTerm('');
   };
+
 
   return (
     <div className="flex flex-col justify-center items-center">
@@ -109,7 +108,7 @@ const Pokedex = () => {
 
       <section className="flex flex-wrap flex-row gap-6 mt-20 mb-20 mx-6 justify-evenly">
         {pokemonsPagination.listSlice.map((pokemon) => (
-          <PokemonCard key={pokemon.url} pokemonData={pokemon}/>
+          <PokemonCard key={pokemon.url} pokemonData={pokemon} />
         ))}
       </section>
     </div>
