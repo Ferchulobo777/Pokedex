@@ -9,7 +9,7 @@ const Pokedex = () => {
   const { user } = useContext(UserContext);
   const [pokemons, setPokemons] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [setLoading] = useState(false);
   const pokemonsPagination = usePagination(
     pokemons.length > 0
       ? pokemons.filter((pokemon) => {
@@ -28,7 +28,7 @@ const Pokedex = () => {
     }
     setTimeout(() => {
       setLoading(true);
-    }, 1000);
+    }, 5000);
   };
 
   const getByType = async (type) => {
@@ -41,7 +41,7 @@ const Pokedex = () => {
     }
     setTimeout(() => {
       setLoading(true);
-    }, 1000);
+    }, 5000);
   };
 
   const loadAllPokemons = async () => {
@@ -52,7 +52,7 @@ const Pokedex = () => {
 
   useEffect(() => {
     loadAllPokemons();
-  }, []);
+  }, [loadAllPokemons]);
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
@@ -98,7 +98,7 @@ const Pokedex = () => {
             onClick={() => pokemonsPagination.changePageTo(page)}
             className={
               pokemonsPagination.currentPage === page
-                ? 'text-red-500 font-black text-3xl hover:shadow-md hover:shadow-red-500'
+                ? 'text-red-500 font-black text-4xl hover:saturate-200'
                 : ''
             }
           >

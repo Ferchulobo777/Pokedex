@@ -3,7 +3,7 @@ import axios from 'axios';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import loader from '../assets/img/pokeball.png';
-import image from '../assets/img/imageNotFound.png';
+import imagenotfound from '../assets/img/imageNotFound.png';
 
 const PokemonCard = ({ pokemonData }) => {
   const [pokemon, setPokemon] = useState(null);
@@ -19,7 +19,7 @@ const PokemonCard = ({ pokemonData }) => {
       console.error(error);
       setTimeout(() => {
         setLoading(true);
-      }, 1700);
+      }, 5000);
     }
   };
 
@@ -35,6 +35,7 @@ const PokemonCard = ({ pokemonData }) => {
   }, []);
 
   const tiposPokemonEspanol = {
+    alltypes: 'Todos los tipos',
     normal: 'Normal',
     fighting: 'Lucha',
     flying: 'Volador',
@@ -68,10 +69,10 @@ const PokemonCard = ({ pokemonData }) => {
       setPokemon(pokemonInfo);
       setLoading(false);
       setLoaded(true);
-       // establecer loaded en true después de cargar los datos
+      // establecer loaded en true después de cargar los datos
     };
     loadPokemon();
-  }, []);
+  }, [pokemonData.url]);
 
   return (
     <>
@@ -93,7 +94,7 @@ const PokemonCard = ({ pokemonData }) => {
                   src={
                     pokemon?.sprites.other['official-artwork'].front_default
                       ? pokemon?.sprites.other['official-artwork'].front_default
-                      : { image }
+                      : imagenotfound
                   }
                   className="pokemon-img"
                   alt="logo"
@@ -107,7 +108,7 @@ const PokemonCard = ({ pokemonData }) => {
               <h2 className="text-2xl capitalize font-bold text-center mt-6 text-slate-900">
                 {pokemon?.name}
               </h2>
-              <p className="text-center font-semibold mt-2 text-lg mt-4">{tipoPokemon}</p>
+              <p className="text-center font-semibold mt-2 text-lg">{tipoPokemon}</p>
               <p className="text-xl capitalize font-bold text-center mt-0 text-slate-900">
                 Tipo
               </p>

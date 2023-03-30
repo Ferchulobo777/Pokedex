@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FaChevronLeft } from 'react-icons/fa';
 import loader from '../assets/img/pokeball.png';
-import image from '../assets/img/imageNotFound.png';
+import imagenotfound from '../assets/img/imageNotFound.png';
 
 const PokemonDetail = () => {
   const { id } = useParams();
@@ -23,7 +23,7 @@ const PokemonDetail = () => {
     }
     setTimeout(() => {
       setLoading(false);
-    }, 15000);
+    }, 3000);
   };
 
   const getPokemonNameById = async (id) => {
@@ -35,7 +35,7 @@ const PokemonDetail = () => {
     }
     setTimeout(() => {
       setLoading(false);
-    }, 15000);
+    }, 3000);
   };
 
   const getPokemonStatsById = async (id) => {
@@ -47,7 +47,7 @@ const PokemonDetail = () => {
     }
     setTimeout(() => {
       setLoading(false);
-    }, 15000);
+    }, 3000);
   };
 
   useEffect(() => {
@@ -118,7 +118,7 @@ const PokemonDetail = () => {
               src={
                 pokemon?.sprites.other['official-artwork'].front_default
                   ? pokemon?.sprites.other['official-artwork'].front_default
-                  : { image }
+                  : imagenotfound
               }
               className="pokemon-img"
               alt="logo"

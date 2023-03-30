@@ -36,7 +36,11 @@ const PokedexLayout = () => {
         src={headerblack}
         alt="header-black"
       />
-      <img className="absolute w-48 h-14 left-4 top-6" src={logo} alt="logo-pokedex" />
+      <img
+        className="absolute w-48 h-14 left-4 top-6 header"
+        src={logo}
+        alt="logo-pokedex"
+      />
       <img className="absolute ball" src={ball} alt="ball" />
       <button
         className="absolute top-12 right-14 bg-red-500 p-4 rounded-full border-2 border-slate-400 outline outline-slate-400"

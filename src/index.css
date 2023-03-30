@@ -24,6 +24,10 @@
     padding: 0;
     margin: 0;
   }
+body {
+min-height: 100vh;
+}
+
 
 .title {
     -webkit-text-stroke-color: blue;
@@ -664,7 +668,11 @@
 }
 }
 @media only screen and (min-width: 648px) {
-  .ball {
+.header{
+    width: 450px;
+    height: 80px;
+  }
+.ball {
     left: 522px;
     top: 38px;
     width: 80px;
@@ -686,6 +694,10 @@
 }
 }
 @media only screen and (min-width: 768px) {
+  .header{
+    width: 450px;
+    height: 80px;
+  }
   .ball {
     left: 642px;
     top: 38px;
@@ -708,6 +720,10 @@
 }
 }
 @media only screen and (min-width: 900px) {
+  .header{
+    width: 600px;
+    height: 90px;
+  }
   .ball {
     left: 774px;
     top: 38px;
@@ -730,6 +746,10 @@
 }
 }
 @media only screen and (min-width: 1024px) {
+  .header{
+    width: 600px;
+    height: 90px;
+  }
   .ball {
     left: 898px;
     top: 38px;
@@ -752,6 +772,10 @@
 }
 }
 @media only screen and (min-width: 1280px) {
+  .header{
+    width: 600px;
+    height: 90px;
+  }
   .ball {
     left: 1154px;
     top: 38px;
@@ -773,6 +797,10 @@
 }
 }
 @media only screen and (min-width: 1366px) {
+  .header{
+    width: 600px;
+    height: 90px;
+  }
   .ball {
     left: 1238px;
     top: 38px;
@@ -795,6 +823,10 @@
 }
 }
 @media only screen and (min-width: 1536px) {
+  .header{
+    width: 800px;
+    height: 105px;
+  }
   .ball {
     left: 1410px;
     top: 38px;
@@ -817,6 +849,10 @@
 }
 }
 @media only screen and (min-width: 1920px) {
+  .header{
+    width: 800px;
+    height: 105px;
+  }
   .ball {
     left: 1794px;
     top: 38px;
@@ -839,6 +875,10 @@
 }
 }
 @media only screen and (min-width: 2560px) {
+  .header{
+    width: 800px;
+    height: 105px;
+  }
   .ball {
     left: 2434px;
     top: 38px;
