@@ -43,7 +43,7 @@ const PokedexLayout = () => {
       />
       <img className="absolute ball" src={ball} alt="ball" />
       <button
-        className="absolute top-12 right-14 bg-red-500 p-4 rounded-full border-2 border-slate-400 outline outline-slate-400"
+        className="absolute top-12 right-14 bg-red-500 p-4 rounded-full border-2 border-slate-400 outline outline-slate-400 togle"
         onClick={handleToggleDarkMode}
       >
         {isDarkMode ? (
