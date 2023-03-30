@@ -9,7 +9,7 @@ const Pokedex = () => {
   const { user } = useContext(UserContext);
   const [pokemons, setPokemons] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [loading, setLoading] = useState(true); // set to true by default
+  const [loading, setLoading] = useState(false);
   const pokemonsPagination = usePagination(
     pokemons.length > 0
       ? pokemons.filter((pokemon) => {
@@ -19,33 +19,35 @@ const Pokedex = () => {
     21,
   );
   const getAllPokemons = async () => {
-    setLoading(true); // set to true before making the API request
     try {
       const res = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=1300');
-      const allPokemons = res.data.results;
 
-      setPokemons(allPokemons);
+      return res.data.results;
     } catch (error) {
       console.error(error);
     }
-    setLoading(false); // set to false after the API request is complete
+    setTimeout(() => {
+      setLoading(true);
+    }, 1000);
   };
 
   const getByType = async (type) => {
-    setLoading(true); // set to true before making the API request
     try {
       const res = await axios.get(`https://pokeapi.co/api/v2/type/${type}`);
-      const pokemonsOfType = res.data.pokemon.map((p) => p.pokemon);
 
-      setPokemons(pokemonsOfType);
+      return res.data.pokemon.map((p) => p.pokemon);
     } catch (error) {
       console.error(error);
     }
-    setLoading(false); // set to false after the API request is complete
+    setTimeout(() => {
+      setLoading(true);
+    }, 1000);
   };
 
   const loadAllPokemons = async () => {
-    await getAllPokemons();
+    const allPokemons = await getAllPokemons();
+
+    setPokemons(allPokemons);
   };
 
   useEffect(() => {
@@ -59,7 +61,6 @@ const Pokedex = () => {
   const handleResetSearch = () => {
     setSearchTerm('');
   };
-
 
   return (
     <div className="flex flex-col justify-center items-center">
