@@ -482,6 +482,51 @@ min-height: 100vh;
 
 }
 }
+@media only screen and (min-width: 412px) {
+  .ball {
+    left: 286px;
+    top: 38px;
+    width: 80px;
+    height: 80px;
+}
+.input::placeholder{
+  font-size: 15px;
+}
+.select{
+  font-size: 15px;
+
+}
+}
+@media only screen and (min-width: 413px) {
+  .ball {
+    left: 288px;
+    top: 38px;
+    width: 80px;
+    height: 80px;
+}
+.input::placeholder{
+  font-size: 15px;
+}
+.select{
+  font-size: 15px;
+
+}
+}
+@media only screen and (min-width: 414px) {
+  .ball {
+    left: 288px;
+    top: 38px;
+    width: 80px;
+    height: 80px;
+}
+.input::placeholder{
+  font-size: 15px;
+}
+.select{
+  font-size: 15px;
+
+}
+}
 @media only screen and (min-width: 415px) {
   .ball {
     left: 288px;
