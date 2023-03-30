@@ -109,7 +109,7 @@ const Pokedex = () => {
 
       <section className="flex flex-wrap flex-row gap-6 mt-20 mb-20 mx-6 justify-evenly">
         {pokemonsPagination.listSlice.map((pokemon) => (
-          <PokemonCard key={pokemon.url} pokemonData={pokemon} loading={loading} setLoading{setLoading} />
+          <PokemonCard key={pokemon.url} pokemonData={pokemon}/>
         ))}
       </section>
     </div>

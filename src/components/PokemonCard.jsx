@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import loader from '../assets/img/pokeball.png';
+import image from '../assets/img/imageNotFound.png';
 
 const PokemonCard = ({ pokemonData, loading, setLoading }) => {
   const [pokemon, setPokemon] = useState(null);
@@ -73,14 +75,14 @@ const PokemonCard = ({ pokemonData, loading, setLoading }) => {
               style={{ margin: 'auto' }}
             >
               {loading ? (
-                <img src={`/pokeball.png`} className="loader" alt="loader" />
+                <img src={loader} className="loader" alt="loader" />
               ) : (
                 <motion.img
                   layout
                   src={
                     pokemon?.sprites.other['official-artwork'].front_default
                       ? pokemon?.sprites.other['official-artwork'].front_default
-                      : '/imageNotFound.png'
+                      : { image }
                   }
                   className="pokemon-img"
                   alt="logo"
