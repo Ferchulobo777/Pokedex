@@ -5,36 +5,45 @@ import PokemonCard from '../components/PokemonCard';
 import ByType from '../components/ByType';
 import { usePagination } from '../hooks/usePagination';
 
-const getAllPokemons = async () => {
-  try {
-    const res = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=1300');
-
-    return res.data.results;
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-const getByType = async (type) => {
-  try {
-    const res = await axios.get(`https://pokeapi.co/api/v2/type/${type}`);
-
-    return res.data.pokemon.map((p) => p.pokemon);
-  } catch (error) {
-    console.error(error);
-  }
-};
-
 const Pokedex = () => {
   const { user } = useContext(UserContext);
   const [pokemons, setPokemons] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [loading, setLoading] = useState(false);
   const pokemonsPagination = usePagination(
-    pokemons.length > 0 ? pokemons.filter((pokemon) => {
-      return pokemon.name.includes(searchTerm.toLowerCase());
-    }) : [],
+    pokemons.length > 0
+      ? pokemons.filter((pokemon) => {
+          return pokemon.name.includes(searchTerm.toLowerCase());
+        })
+      : [],
     21,
   );
+  const getAllPokemons = async () => {
+    try {
+      const res = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=1300');
+
+      return res.data.results;
+    } catch (error) {
+      console.error(error);
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+    }
+  };
+
+  const getByType = async (type) => {
+    try {
+      const res = await axios.get(`https://pokeapi.co/api/v2/type/${type}`);
+
+      return res.data.pokemon.map((p) => p.pokemon);
+    } catch (error) {
+      console.error(error);
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+    }
+  };
+
   const loadAllPokemons = async () => {
     const allPokemons = await getAllPokemons();
 
@@ -100,7 +109,7 @@ const Pokedex = () => {
 
       <section className="flex flex-wrap flex-row gap-6 mt-20 mb-20 mx-6 justify-evenly">
         {pokemonsPagination.listSlice.map((pokemon) => (
-          <PokemonCard key={pokemon.url} pokemonData={pokemon} />
+          <PokemonCard key={pokemon.url} pokemonData={pokemon} loading={loading} setLoading{setLoading} />
         ))}
       </section>
     </div>

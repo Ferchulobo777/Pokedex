@@ -3,20 +3,22 @@ import axios from 'axios';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
-const getPokemonById = async (url) => {
-  try {
-    const res = await axios.get(url);
-
-    return res.data;
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-const PokemonCard = ({ pokemonData }) => {
+const PokemonCard = ({ pokemonData, loading, setLoading }) => {
   const [pokemon, setPokemon] = useState(null);
-  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+
+  const getPokemonById = async (url) => {
+    try {
+      const res = await axios.get(url);
+
+      return res.data;
+    } catch (error) {
+      console.error(error);
+    }
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  };
 
   const loadPokemon = async () => {
     const pokemonInfo = await getPokemonById(pokemonData.url);
@@ -71,14 +73,14 @@ const PokemonCard = ({ pokemonData }) => {
               style={{ margin: 'auto' }}
             >
               {loading ? (
-                <img src={`../assets/img/pokeball.png`} className="loader" alt="loader" />
+                <img src={`/pokeball.png`} className="loader" alt="loader" />
               ) : (
                 <motion.img
                   layout
                   src={
                     pokemon?.sprites.other['official-artwork'].front_default
                       ? pokemon?.sprites.other['official-artwork'].front_default
-                      : '../assets/img/imageNotFound.png'
+                      : '/imageNotFound.png'
                   }
                   className="pokemon-img"
                   alt="logo"
@@ -93,15 +95,15 @@ const PokemonCard = ({ pokemonData }) => {
                 {pokemon?.name}
               </h2>
               <p className="text-center font-semibold mt-2 text-lg mt-4">{tipoPokemon}</p>
-              <p className="text-xl capitalize font-bold text-center mt-0 text-slate-900">Tipo</p>
+              <p className="text-xl capitalize font-bold text-center mt-0 text-slate-900">
+                Tipo
+              </p>
             </section>
 
             <section className="flex flex-wrap flex-row gap-8 mt-4 justify-between">
               {pokemon.stats.map((stat) => (
                 <section key={stat.stat.name}>
-                  <h3 className="text-xl font-bold">
-                    {stat.stat.name.toUpperCase()}
-                  </h3>
+                  <h3 className="text-xl font-bold">{stat.stat.name.toUpperCase()}</h3>
                   <p className="text-center font-bold text-lg">{stat.base_stat}</p>
                 </section>
               ))}

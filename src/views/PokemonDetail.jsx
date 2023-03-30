@@ -5,39 +5,48 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FaChevronLeft } from 'react-icons/fa';
 
-const getPokemonById = async (id) => {
-  try {
-    const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
-    return res.data;
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-const getPokemonNameById = async (id) => {
-  try {
-    const res = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
-    return res.data.names.find((name) => name.language.name === 'en').name;
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-const getPokemonStatsById = async (id) => {
-  try {
-    const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
-    return res.data.stats;
-  } catch (error) {
-    console.error(error);
-  }
-};
-
 const PokemonDetail = () => {
   const { id } = useParams();
   const [pokemon, setPokemon] = useState(null);
   const [pokemonName, setPokemonName] = useState(null);
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const getPokemonById = async (id) => {
+    try {
+      const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
+      return res.data;
+    } catch (error) {
+      console.error(error);
+    }
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  };
+
+  const getPokemonNameById = async (id) => {
+    try {
+      const res = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
+      return res.data.names.find((name) => name.language.name === 'en').name;
+    } catch (error) {
+      console.error(error);
+    }
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  };
+
+  const getPokemonStatsById = async (id) => {
+    try {
+      const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
+      return res.data.stats;
+    } catch (error) {
+      console.error(error);
+    }
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -100,14 +109,14 @@ const PokemonDetail = () => {
           style={{ margin: 'auto' }}
         >
           {loading ? (
-            <img src={`../assets/img/pokeball.png`} className="loader" alt="loader" />
+            <img src={`/pokeball.png`} className="loader" alt="loader" />
           ) : (
             <motion.img
               layout
               src={
                 pokemon?.sprites.other['official-artwork'].front_default
                   ? pokemon?.sprites.other['official-artwork'].front_default
-                  : '../assets/img/imageNotFound.png'
+                  : ''
               }
               className="pokemon-img"
               alt="logo"
@@ -116,11 +125,15 @@ const PokemonDetail = () => {
         </motion.div>
         <div className="flex flex-row flex-wrap gap-20 justify-center mt-12">
           <div className="flex flex-col">
-            <p className="text-center mt-4 mb-4 font-bold text-2xl text-slate-900">Peso</p>
+            <p className="text-center mt-4 mb-4 font-bold text-2xl text-slate-900">
+              Peso
+            </p>
             <p className="text-center text-xl font-bold">{pokemon?.weight} kg</p>
           </div>
           <div className="flex flex-col">
-            <p className="text-center mt-4 mb-4 font-bold text-2xl text-slate-900">Altura</p>
+            <p className="text-center mt-4 mb-4 font-bold text-2xl text-slate-900">
+              Altura
+            </p>
             <p className="text-center text-xl font-bold">{pokemon?.height / 10} m</p>
           </div>
         </div>
@@ -142,7 +155,9 @@ const PokemonDetail = () => {
           className={`bg bg${pokemon?.types[0].type.name} card w-3/4 flex hover:saturate-200 justify-center items-center mx-auto mt-10 mb-4`}
         />
         <div>
-          <h2 className="text-center mt-4 font-bold text-2xl mb-4 text-slate-900">Habilidades</h2>
+          <h2 className="text-center mt-4 font-bold text-2xl mb-4 text-slate-900">
+            Habilidades
+          </h2>
           <div className="flex flex-wrap justify-center">
             {pokemon?.abilities.map((ability) => (
               <p
@@ -158,7 +173,9 @@ const PokemonDetail = () => {
           <hr
             className={`bg bg${pokemon?.types[0].type.name} card w-3/4 flex hover:saturate-200 justify-center items-center mx-auto mt-16 mb-4`}
           />
-          <h2 className="text-center mt-4 mb-4 font-bold text-2xl text-slate-900">Estadisticas</h2>
+          <h2 className="text-center mt-4 mb-4 font-bold text-2xl text-slate-900">
+            Estadisticas
+          </h2>
 
           <ul className="text-center font-bold text-xl mb-2 flex justify-center flex-col capitalize">
             {stats?.map((stat, index) => (
