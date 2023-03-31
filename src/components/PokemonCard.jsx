@@ -18,8 +18,8 @@ const PokemonCard = ({ pokemonData }) => {
     } catch (error) {
       console.error(error);
       setTimeout(() => {
-        setLoading(true);
-      }, 5000);
+        setLoading(false);
+      }, 4000);
     }
   };
 

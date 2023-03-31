@@ -14,16 +14,21 @@ const PokemonDetail = () => {
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const getPokemonById = async (id) => {
-    try {
-      const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
-      return res.data;
-    } catch (error) {
-      console.error(error);
-    }
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
+  const getPokemonById = (id) => {
+    return new Promise((resolve, reject) => {
+      axios
+        .get(`https://pokeapi.co/api/v2/pokemon/${id}`)
+        .then((res) => {
+          resolve(res.data);
+        })
+        .catch((error) => {
+          console.error(error);
+          reject(error);
+        });
+      setTimeout(() => {
+        setLoading(false);
+      }, 4000);
+    });
   };
 
   const getPokemonNameById = async (id) => {
@@ -35,7 +40,7 @@ const PokemonDetail = () => {
     }
     setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 4000);
   };
 
   const getPokemonStatsById = async (id) => {
@@ -47,7 +52,7 @@ const PokemonDetail = () => {
     }
     setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 4000);
   };
 
   useEffect(() => {

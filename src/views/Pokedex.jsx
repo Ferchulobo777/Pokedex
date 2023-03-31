@@ -21,27 +21,25 @@ const Pokedex = () => {
   const getAllPokemons = async () => {
     try {
       const res = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=1300');
-
       return res.data.results;
     } catch (error) {
       console.error(error);
     }
     setTimeout(() => {
-      setLoading(true);
-    }, 5000);
+      setLoading(false);
+    }, 4000);
   };
 
   const getByType = async (type) => {
     try {
       const res = await axios.get(`https://pokeapi.co/api/v2/type/${type}`);
-
       return res.data.pokemon.map((p) => p.pokemon);
     } catch (error) {
       console.error(error);
     }
     setTimeout(() => {
-      setLoading(true);
-    }, 5000);
+      setLoading(false);
+    }, 4000);
   };
 
   const loadAllPokemons = async () => {
