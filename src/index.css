@@ -395,6 +395,13 @@ min-height: 100vh;
     width: 80px;
     height: 80px;
 }
+}@media only screen and (min-width: 393px) and (min-height: 851px) {
+  .ball {
+    left: 270px;
+    top: 38px;
+    width: 80px;
+    height: 80px;
+}
 }
 @media only screen and (min-width: 394px) {
   .ball {
