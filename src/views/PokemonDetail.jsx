@@ -112,7 +112,7 @@ const PokemonDetail = () => {
           N° {id}{' '}
         </p>
         <motion.div
-          className={`bg bg${pokemon?.types[0].type.name} card w-2/5 h-2/5 flex hover:saturate-200 hover:rounded-full hover:transform hover:scale-125 mt-32 justify-center items-center mx-auto`}
+          className={`bg bg${pokemon?.types[0].type.name} card w-60 h-60 sm:w-96 sm:h-96 flex hover:saturate-200 hover:rounded-full hover:transform hover:scale-125 mt-32 justify-center items-center mx-auto`}
           style={{ margin: 'auto' }}
         >
           {loading ? (
