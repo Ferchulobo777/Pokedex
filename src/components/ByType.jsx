@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { usePagination } from '../hooks/usePagination';
 import PokemonCard from './PokemonCard';
 
-const ByType = ({ getByType, loadAllPokemons }) => {
+const ByType = ({ getByType }) => {
   const [selectedType, setSelectedType] = useState('');
   const [filteredPokemons, setFilteredPokemons] = useState([]);
-  const pokemonsPerPage = 12;
+  const pokemonsPerPage = 21;
 
   const handleFilterByType = async (event) => {
     const type = event.target.value;
@@ -100,7 +100,7 @@ const ByType = ({ getByType, loadAllPokemons }) => {
                 </button>
               ))}
             </div>
-            <div className="flex flex-wrap flex-row w-full items-baseline justify-around gap-36">
+            <div className="flex flex-wrap flex-row w-full items-baseline justify-around gap-6">
               {filteredPagination.listSlice.map((pokemon) => (
                 <PokemonCard key={pokemon.url} pokemonData={pokemon} />
               ))}

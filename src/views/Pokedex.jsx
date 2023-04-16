@@ -88,7 +88,7 @@ const Pokedex = () => {
           Borrar
         </button>
       </div>
-      <ByType getByType={getByType} loadAllPokemons={loadAllPokemons} />
+      <ByType getByType={getByType} />
       <div className="flex flex-wrap flex-row gap-4 mt-20 justify-center w-3/4 text-xl font-bold hover:shadow-md hover:shadow-red-500 rounded-lg cursor-pointer">
         {pokemonsPagination.pages.map((page) => (
           <button
