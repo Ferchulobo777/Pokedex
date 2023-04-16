@@ -77,9 +77,11 @@ const PokemonCard = ({ pokemonData }) => {
   return (
     <>
       {pokemon && (
-        <article
+        <motion.article
           onClick={handleClickNavigate}
-          className={`w-80 p-4 card cursor-pointer bg bg${pokemon?.types[0].type.name}`}
+          className={`w-80 h-1/6 px-6 py-10 card cursor-pointer bg bg${pokemon?.types[0].type.name}`}
+          style={{ margin: 'auto' }}
+          whileHover={{ scale: 1.05 }}
         >
           <header className={`bg bg${pokemon?.types[0].type.name} rounded-xl`}>
             <motion.div
@@ -105,25 +107,25 @@ const PokemonCard = ({ pokemonData }) => {
 
           <section>
             <section>
-              <h2 className="text-2xl capitalize font-bold text-center mt-6 text-slate-900">
+              <h2 className="text-2xl capitalize font-bold text-center mt-10 text-slate-900">
                 {pokemon?.name}
               </h2>
-              <p className="text-center font-semibold mt-2 text-lg">{tipoPokemon}</p>
-              <p className="text-xl capitalize font-bold text-center mt-0 text-slate-900">
+              <p className="text-center font-semibold text-md">{tipoPokemon}</p>
+              <p className="text-lg capitalize font-bold text-center text-slate-900">
                 Tipo
               </p>
             </section>
 
-            <section className="flex flex-wrap flex-row gap-8 mt-4 justify-between">
+            <section className="flex flex-wrap flex-row gap-2 mt-2 justify-between">
               {pokemon.stats.map((stat) => (
                 <section key={stat.stat.name}>
-                  <h3 className="text-xl font-bold">{stat.stat.name.toUpperCase()}</h3>
-                  <p className="text-center font-bold text-lg">{stat.base_stat}</p>
+                  <h3 className="text-md font-bold">{stat.stat.name.toUpperCase()}</h3>
+                  <p className="text-center font-bold text-md">{stat.base_stat}</p>
                 </section>
               ))}
             </section>
           </section>
-        </article>
+        </motion.article>
       )}
     </>
   );

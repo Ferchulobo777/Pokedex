@@ -20,7 +20,7 @@ const Pokedex = () => {
   );
   const getAllPokemons = async () => {
     try {
-      const res = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=1300');
+      const res = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=2000');
       return res.data.results;
     } catch (error) {
       console.error(error);
@@ -50,7 +50,7 @@ const Pokedex = () => {
 
   useEffect(() => {
     loadAllPokemons();
-  }, [loadAllPokemons]);
+  }, []);
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);

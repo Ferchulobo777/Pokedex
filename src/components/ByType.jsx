@@ -40,7 +40,7 @@ const ByType = ({ getByType }) => {
           Eléctrico
         </option>
         <option value="grass" className="font-black text-teal-500">
-          Hierba
+          Planta
         </option>
         <option value="ice" className="font-black text-cyan-500">
           Hielo
@@ -84,7 +84,7 @@ const ByType = ({ getByType }) => {
       </select>
       {filteredPokemons.length > 0 && (
         <div className="flex flex-wrap flex-row gap-6 mt-20 mb-20 mx-6 justify-evenly">
-        <div className="flex flex-wrap flex-row gap-4 mt-20 justify-center w-3/4 text-xl font-bold hover:shadow-md hover:shadow-red-500 rounded-lg cursor-pointer">
+          <div className="flex flex-wrap flex-row gap-4 mt-20 justify-center w-3/4 text-xl font-bold hover:shadow-md hover:shadow-red-500 rounded-lg cursor-pointer">
             {filteredPagination.pages.map((page) => (
               <button
                 key={page}
@@ -102,7 +102,6 @@ const ByType = ({ getByType }) => {
           {filteredPagination.listSlice.map((pokemon) => (
             <PokemonCard key={pokemon.url} pokemonData={pokemon} />
           ))}
-          
         </div>
       )}
     </div>
