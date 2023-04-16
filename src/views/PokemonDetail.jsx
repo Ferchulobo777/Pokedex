@@ -102,17 +102,17 @@ const PokemonDetail = () => {
       <header
         className={`bg bg${pokemon?.types[0].type.name} flex flex-col justify center border-2 card rounded-xl mt-48 mb-20 w-11/12 h-full`}
       >
-        <h1 className="text-4xl text-center mt-8 font-black flex justify-center text-slate-900">
+        <h1 className="text-4xl text-center mt-4 font-black flex justify-center text-slate-900">
           {pokemonName}
         </h1>
         <p
-          className="text-center mt-4 mb-16 text-xl font-bold bg-green-500 w-20 h-10 flex justify-center items-center justify-self-center rounded-md hover:saturate-200 text-gray-900"
+          className="text-center text-xl font-bold bg-green-500 w-20 h-10 flex justify-center items-center justify-self-center rounded-md hover:saturate-200 text-gray-900"
           style={{ margin: 'auto', marginBottom: '65px', marginTop: '40px' }}
         >
           N° {id}{' '}
         </p>
         <motion.div
-          className={`bg bg${pokemon?.types[0].type.name} card w-60 h-60 sm:w-96 sm:h-96 flex hover:saturate-200 hover:rounded-full hover:transform hover:scale-125 mt-32 justify-center items-center mx-auto`}
+          className={`bg bg${pokemon?.types[0].type.name} card w-60 h-60 sm:w-96 sm:h-96 flex hover:saturate-200 hover:rounded-full hover:transform hover:scale-125 mt-0 justify-center items-center mx-auto`}
           style={{ margin: 'auto' }}
         >
           {loading ? (
@@ -130,7 +130,7 @@ const PokemonDetail = () => {
             />
           )}
         </motion.div>
-        <div className="flex flex-row flex-wrap gap-20 justify-center mt-4">
+        <div className="flex flex-row flex-wrap gap-20 justify-center mt-4 md:mt-8">
           <div className="flex flex-col">
             <p className="text-center mt-2 mb-2 font-bold text-2xl text-slate-900">
               Peso
