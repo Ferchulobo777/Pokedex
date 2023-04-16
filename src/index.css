@@ -544,7 +544,7 @@ min-height: 100vh;
 }
 @media only screen and (min-width: 420px) {
   .ball {
-    left: 296px;
+    left: 290px;
     top: 38px;
     width: 80px;
     height: 80px;
