@@ -90,8 +90,15 @@ const PokemonDetail = () => {
   };
 
   const calculateStatPercentage = (statValue) => {
-    const maxStatValue = 255; // Máximo valor de estadística de cualquier Pokémon
-    return (statValue / maxStatValue) * 100;
+    return Math.floor((statValue / 255) * 100);
+  };
+
+  const statVariants = {
+    hidden: { width: '0%' },
+    visible: (i) => ({
+      width: `${calculateStatPercentage(stats[i].base_stat)}%`,
+      transition: { duration: 1, delay: i * 0.1 },
+    }),
   };
 
   return (
@@ -183,14 +190,21 @@ const PokemonDetail = () => {
           <h2 className="text-center mt-2 mb-2 font-bold text-2xl text-slate-900">
             Estadisticas
           </h2>
-
-          <ul className="text-center font-bold text-xl mb-2 flex justify-center flex-col capitalize">
+          <motion.ul className="text-center font-bold text-xl mb-2 flex justify-center flex-col capitalize">
             {stats?.map((stat, index) => (
-              <li className="mt-2 mb-2" key={index}>
+              <motion.li
+                className="w-full h-12 border-2 border-black rounded-2xl text-zinc-900 flex hover:saturate-200 justify-center items-center text-sm mt-2 mb-2 mx-auto bg-orange-500"
+                key={index}
+                variants={statVariants}
+                initial="hidden"
+                animate="visible"
+                custom={index}
+                style={{ width: `${calculateStatPercentage(stat.base_stat)}%` }}
+              >
                 {stat.stat.name}: {stat.base_stat}
-              </li>
+              </motion.li>
             ))}
-          </ul>
+          </motion.ul>
         </div>
       </header>
     </section>
