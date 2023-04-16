@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { usePagination } from '../hooks/usePagination';
 import PokemonCard from './PokemonCard';
 
-const ByType = ({ getByType }) => {
+const ByType = ({ getByType, loadAllPokemons }) => {
   const [selectedType, setSelectedType] = useState('');
   const [filteredPokemons, setFilteredPokemons] = useState([]);
   const pokemonsPerPage = 12;

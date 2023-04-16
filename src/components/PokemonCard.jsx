@@ -79,11 +79,11 @@ const PokemonCard = ({ pokemonData }) => {
       {pokemon && (
         <motion.article
           onClick={handleClickNavigate}
-          className={`w-80 h-1/6 px-6 py-10 card cursor-pointer bg bg${pokemon?.types[0].type.name}`}
+          className={`w-80 h-1/6 px-6 py-2 card cursor-pointer bg bg${pokemon?.types[0].type.name}`}
           style={{ margin: 'auto' }}
           whileHover={{ scale: 1.05 }}
         >
-          <header className={`bg bg${pokemon?.types[0].type.name} rounded-xl`}>
+          <header className={`bg bg${pokemon?.types[0].type.name} rounded-xl mt-8`}>
             <motion.div
               className={`bg bg${pokemon?.types[0].type.name} card w-60 h-60 flex hover:saturate-200 hover:rounded-full hover:transform hover:scale-125 justify-center items-center mt-2`}
               style={{ margin: 'auto' }}
@@ -107,7 +107,7 @@ const PokemonCard = ({ pokemonData }) => {
 
           <section>
             <section>
-              <h2 className="text-2xl capitalize font-bold text-center mt-10 text-slate-900">
+              <h2 className="text-2xl capitalize font-bold text-center mt-6 text-slate-900">
                 {pokemon?.name}
               </h2>
               <p className="text-center font-semibold text-md">{tipoPokemon}</p>
