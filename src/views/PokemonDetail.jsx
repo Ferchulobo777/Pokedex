@@ -100,7 +100,7 @@ const PokemonDetail = () => {
         <FaChevronLeft size={40} />
       </Link>
       <header
-        className={`bg bg${pokemon?.types[0].type.name} flex flex-col justify center border-2 card rounded-xl mt-48 mb-20 w-5/6 h-full`}
+        className={`bg bg${pokemon?.types[0].type.name} flex flex-col justify center border-2 card rounded-xl mt-48 mb-20 w-11/12 h-full`}
       >
         <h1 className="text-4xl text-center mt-8 font-black flex justify-center text-slate-900">
           {pokemonName}
@@ -130,25 +130,25 @@ const PokemonDetail = () => {
             />
           )}
         </motion.div>
-        <div className="flex flex-row flex-wrap gap-20 justify-center mt-12">
+        <div className="flex flex-row flex-wrap gap-20 justify-center mt-4">
           <div className="flex flex-col">
-            <p className="text-center mt-4 mb-4 font-bold text-2xl text-slate-900">
+            <p className="text-center mt-2 mb-2 font-bold text-2xl text-slate-900">
               Peso
             </p>
             <p className="text-center text-xl font-bold">{pokemon?.weight} kg</p>
           </div>
           <div className="flex flex-col">
-            <p className="text-center mt-4 mb-4 font-bold text-2xl text-slate-900">
+            <p className="text-center mt-2 mb-2 font-bold text-2xl text-slate-900">
               Altura
             </p>
             <p className="text-center text-xl font-bold">{pokemon?.height / 10} m</p>
           </div>
         </div>
         <hr
-          className={`bg bg${pokemon?.types[0].type.name} card w-3/4 flex hover:saturate-200 justify-center items-center mx-auto mt-6 mb-4`}
+          className={`bg bg${pokemon?.types[0].type.name} card w-3/4 flex hover:saturate-200 justify-center items-center mx-auto mt-2 mb-2`}
         />
-        <p className="text-center mt-4 mb-4 font-bold text-2xl text-slate-900">Tipo</p>
-        <div className="flex justify-center text-xl font-bold mb-8 mt-2">
+        <p className="text-center mt-2 mb-2 font-bold text-2xl text-slate-900">Tipo</p>
+        <div className="flex justify-center text-xl font-bold mb-2 mt-2">
           {pokemon?.types.map((type) => (
             <div
               key={type.slot}
@@ -159,17 +159,17 @@ const PokemonDetail = () => {
           ))}
         </div>
         <hr
-          className={`bg bg${pokemon?.types[0].type.name} card w-3/4 flex hover:saturate-200 justify-center items-center mx-auto mt-10 mb-4`}
+          className={`bg bg${pokemon?.types[0].type.name} card w-3/4 flex hover:saturate-200 justify-center items-center mx-auto mt-2 mb-2`}
         />
         <div>
-          <h2 className="text-center mt-4 font-bold text-2xl mb-4 text-slate-900">
+          <h2 className="text-center mt-2 font-bold text-2xl mb-2 text-slate-900">
             Habilidades
           </h2>
           <div className="flex flex-wrap justify-center">
             {pokemon?.abilities.map((ability) => (
               <p
                 key={ability.ability.name}
-                className={`bg bg${pokemon?.types[0].type.name} card w-40 h-16 flex hover:saturate-200 justify-center items-center mx-6 mt-4 mb-4 font-bold`}
+                className={`bg bg${pokemon?.types[0].type.name} card w-40 h-16 flex hover:saturate-200 justify-center items-center mx-6 mt-2 mb-2 font-bold`}
               >
                 {ability.ability.name}
               </p>
@@ -178,9 +178,9 @@ const PokemonDetail = () => {
         </div>
         <div className="flex flex-col">
           <hr
-            className={`bg bg${pokemon?.types[0].type.name} card w-3/4 flex hover:saturate-200 justify-center items-center mx-auto mt-16 mb-4`}
+            className={`bg bg${pokemon?.types[0].type.name} card w-3/4 flex hover:saturate-200 justify-center items-center mx-auto mt-2 mb-2`}
           />
-          <h2 className="text-center mt-4 mb-4 font-bold text-2xl text-slate-900">
+          <h2 className="text-center mt-2 mb-2 font-bold text-2xl text-slate-900">
             Estadisticas
           </h2>
 
