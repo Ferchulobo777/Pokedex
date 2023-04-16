@@ -82,28 +82,32 @@ const ByType = ({ getByType, loadAllPokemons }) => {
           Hada
         </option>
       </select>
-      {filteredPokemons.length > 0 && (
-        <div className="flex flex-wrap flex-row gap-6 mt-20 mb-20 mx-6 justify-evenly">
-          <div className="flex flex-wrap flex-row gap-4 mt-20 justify-center w-3/4 text-xl font-bold hover:shadow-md hover:shadow-red-500 rounded-lg cursor-pointer">
-            {filteredPagination.pages.map((page) => (
-              <button
-                key={page}
-                onClick={() => filteredPagination.changePageTo(page)}
-                className={
-                  filteredPagination.currentPage === page
-                    ? 'text-red-500 font-black text-3xl hover:shadow-md hover:shadow-red-500 rounded-lg'
-                    : 'hover:shadow-md hover:shadow-red-500 rounded-lg'
-                }
-              >
-                {page}
-              </button>
-            ))}
+      <div className="flex flex-col justify-center items-center">
+        {filteredPokemons.length > 0 && (
+          <div className="flex flex-wrap flex-col gap-6 mt-20 mb-20 mx-6 justify-center items-center">
+            <div className="flex flex-wrap flex-row gap-4 mt-5 mb-5 justify-center items-center w-3/4 text-xl font-bold hover:shadow-md hover:shadow-red-500 rounded-lg cursor-pointer">
+              {filteredPagination.pages.map((page) => (
+                <button
+                  key={page}
+                  onClick={() => filteredPagination.changePageTo(page)}
+                  className={
+                    filteredPagination.currentPage === page
+                      ? 'text-red-500 font-black text-3xl hover:shadow-md hover:shadow-red-500 rounded-lg'
+                      : 'hover:shadow-md hover:shadow-red-500 rounded-lg'
+                  }
+                >
+                  {page}
+                </button>
+              ))}
+            </div>
+            <div className="flex flex-wrap flex-row w-full items-baseline justify-around gap-36">
+              {filteredPagination.listSlice.map((pokemon) => (
+                <PokemonCard key={pokemon.url} pokemonData={pokemon} />
+              ))}
+            </div>
           </div>
-          {filteredPagination.listSlice.map((pokemon) => (
-            <PokemonCard key={pokemon.url} pokemonData={pokemon} />
-          ))}
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
