@@ -430,7 +430,7 @@ min-height: 100vh;
 }
 @media only screen and (min-width: 400px) {
     .ball {
-      left: 275px;
+      left: 280px;
       top: 38px;
       width: 80px;
       height: 80px;
@@ -514,7 +514,7 @@ min-height: 100vh;
 }
 @media only screen and (min-width: 414px) {
   .ball {
-    left: 288px;
+    left: 290px;
     top: 38px;
     width: 80px;
     height: 80px;
@@ -529,7 +529,7 @@ min-height: 100vh;
 }
 @media only screen and (min-width: 415px) {
   .ball {
-    left: 288px;
+    left: 290px;
     top: 38px;
     width: 80px;
     height: 80px;
@@ -544,7 +544,7 @@ min-height: 100vh;
 }
 @media only screen and (min-width: 420px) {
   .ball {
-    left: 305px;
+    left: 296px;
     top: 38px;
     width: 80px;
     height: 80px;
