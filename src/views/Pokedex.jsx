@@ -77,7 +77,7 @@ const Pokedex = () => {
       </p>
 
       <input
-        className="mt-60 flex w-1/2 h-10 text-xl rounded-lg input p-3 placeholder:text-gray-400 font-black placeholder:text-center border-2 border-black"
+        className="mt-60 flex w-3/4 md:w-1/2 h-10 text-xl rounded-lg input p-3 placeholder:text-gray-400 font-black placeholder:text-center border-2 border-black"
         type="text"
         placeholder="Busca aqui tu pokemon"
         value={searchTerm}
@@ -99,11 +99,13 @@ const Pokedex = () => {
       </div>
       <div className="mt-5 mb-5 w-full mx-auto flex justify-center items-center">
         <select
-          className="w-full md:w-1/2 text-center text-gray-500 h-12 text-lg rounded-lg input p-3 placeholder:text-gray-400 font-black placeholder:text-center border border-black"
+          className="w-3/4 md:w-1/2 text-center text-gray-500 h-12 text-lg rounded-lg input p-3 placeholder:text-gray-400 font-black placeholder:text-center border border-black"
           value={selectedType}
           onChange={handleTypeChange}
         >
-          <option className="font-black text-black-300" value="">Selecciona un tipo</option>
+          <option className="font-black text-black-300" value="">
+            Selecciona un tipo
+          </option>
           <option value="normal" className="font-black text-rose-300">
             Normal
           </option>
